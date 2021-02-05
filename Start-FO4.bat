@@ -23,7 +23,7 @@ SET HIGHPERF=8c5e7fda-e8bf-4a96-9a85-a6e23a8c635c
 SET BALANCED=381b4222-f694-41f0-9685-ff5bb260df2e
 SET GAMEPATH="C:\Program Files\Steam\steamapps\common\Fallout 4\"
 
-TITLE Start game with Balanced Power setting
+TITLE Start game with High Performance Power setting
 CLS
 ECHO.
 ECHO This window will close automatically when the game is closed.
