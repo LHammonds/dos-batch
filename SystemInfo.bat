@@ -1,8 +1,8 @@
 @ECHO OFF
 REM #############################################################
 REM Name          : SystemInfo.bat
-REM Version       : 1.0
-REM Date          : 2021-07-27
+REM Version       : 1.1
+REM Date          : 2021-07-30
 REM Author        : LHammonds
 REM Purpose       : Output system information to log file that can be imported to spreadsheet.
 REM Compatibility : Verified on to work on: Windows 10,2012
@@ -12,6 +12,7 @@ REM ###################### CHANGE LOG ###########################
 REM DATE       VER WHO WHAT WAS CHANGED
 REM ---------- --- --- ---------------------------------------
 REM 2021-07-27 1.0 LTH Created script.
+REM 2021-07-30 1.1 LTH Fixed process query to see all console programs
 REM #############################################################
 TITLE Collecting Statistics
 
@@ -47,7 +48,7 @@ REM ** Change Total RAM from bytes to kilobytes to match FreePhysicalMemory **
 SET TotalRAM=%TotalRAM:~0,-4%
 
 TITLE Getting Process Count...
-FOR /f "tokens=1 delims=" %%# IN ('qprocess^|find /i /c /n %ProcessName%') DO SET Instances=%%#
+FOR /f "tokens=1 delims=" %%x IN ('query process console^|find /i /c /n %ProcessName%') DO SET Instances=%%x
 
 TITLE Getting C: Drive...
 FOR /f "usebackq delims== tokens=2" %%x in (`wmic logicaldisk where "DeviceID='C:'" get Size /format:value`) DO SET DriveCTotal=%%x
